@@ -11,7 +11,7 @@ node('master') {
     }
     stage('build') {
         withMaven(jdk: 'jdk 8u221', maven: 'maven 3.6.3') {
-            sh 'mvn clean compile'
+            sh 'mvn clean install'
         }
     }
 }
