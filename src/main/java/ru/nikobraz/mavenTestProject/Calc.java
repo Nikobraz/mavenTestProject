@@ -7,6 +7,8 @@ public class Calc {
 
         System.out.println(output);
     }
+
+
     static int sum(int a, int b) {
         return a + b;
     }
