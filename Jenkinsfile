@@ -1,12 +1,7 @@
 node('master') {
     stage('checkout') {
         cleanWs()
-        checkout([$class: 'GitSCM',
-                  branches: [[name: '*/master']],
-                  doGenerateSubmoduleConfigurations: false,
-                  extensions: [],
-                  submoduleCfg: [],
-                  userRemoteConfigs: [[url: 'https://github.com/Nikobraz/mavenTestProject']]])
+        checkout scm
     }
     stage('test') {
         withMaven(jdk: 'jdk 8u221', maven: 'maven 3.6.3') {
