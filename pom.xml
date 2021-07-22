@@ -17,6 +17,13 @@
         <allure-testng.version>2.13.8</allure-testng.version>
         <slf4j.version>1.7.30</slf4j.version>
     </properties>
+    <distributionManagement>
+        <repository>
+            <id>my-nexus</id>
+            <name>My Private Nexus</name>
+            <url>https://nexus.nikobraz.ru/repository/maven-snapshots/</url>
+        </repository>
+    </distributionManagement>
     <build>
         <plugins>
             <plugin>
@@ -68,6 +75,20 @@
                 <configuration>
                     <reportVersion>2.4.1</reportVersion>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.7</version>
+                <executions>
+                    <execution>
+                        <id>deploy-to-maven</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
