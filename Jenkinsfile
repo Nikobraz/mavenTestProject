@@ -15,7 +15,7 @@ node('master') {
         }
     }
     stage('deploy') {
-        withMaven(jdk: 'jdk 8u221', maven: 'maven 3.6.3') {
+        withMaven(jdk: 'jdk 8u221', maven: 'maven 3.6.3', mavenSettingsConfig: 'bf7b2779-20df-4aef-bd35-6f088af3840f') {
             sh 'mvn deploy'
         }
     }
